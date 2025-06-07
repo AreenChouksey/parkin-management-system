@@ -61,7 +61,7 @@ const AboutSection: React.FC = () => {
           <div className="space-y-6">
             <h3 className="text-3xl font-bold text-gray-900">Our Story</h3>
             <p className="text-gray-600 leading-relaxed">
-              Founded in 2020, At Parkkin emerged from a simple observation: parking management was stuck in the past. 
+              Founded in 2025, At Parkkin emerged from a simple observation: parking management was stuck in the past. 
               Traditional systems were inefficient, user-unfriendly, and failed to leverage modern technology.
             </p>
             <p className="text-gray-600 leading-relaxed">

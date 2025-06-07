@@ -1,6 +1,6 @@
 
 import React from 'react';
-import { Car, Mail, MapPin, Phone, Facebook, Twitter, Linkedin, Instagram } from 'lucide-react';
+import { Mail, MapPin, Phone, Facebook, Twitter, Linkedin, Instagram } from 'lucide-react';
 
 const Footer: React.FC = () => {
   const scrollToSection = (sectionId: string) => {
@@ -17,7 +17,11 @@ const Footer: React.FC = () => {
           {/* Company Info */}
           <div className="space-y-6">
             <div className="flex items-center space-x-3">
-              <Car className="h-8 w-8 text-blue-400" />
+              <img 
+                src="https://www.ewaysservices.com/images/eways.jpg" 
+                alt="Eways Logo" 
+                className="h-8 w-8 object-contain"
+              />
               <span className="text-2xl font-bold">At Parkkin</span>
             </div>
             <p className="text-gray-400 leading-relaxed">
@@ -100,15 +104,13 @@ const Footer: React.FC = () => {
               <div className="flex items-start space-x-3">
                 <MapPin className="h-5 w-5 text-blue-400 mt-1 flex-shrink-0" />
                 <div className="text-gray-400">
-                  <div>123 Tech Street</div>
-                  <div>San Francisco, CA 94105</div>
-                  <div>United States</div>
+                  <div>New Delhi, India</div>
                 </div>
               </div>
               <div className="flex items-center space-x-3">
                 <Phone className="h-5 w-5 text-blue-400 flex-shrink-0" />
-                <a href="tel:+1234567890" className="text-gray-400 hover:text-white transition-colors duration-200">
-                  +1 (234) 567-8900
+                <a href="tel:+912345678901" className="text-gray-400 hover:text-white transition-colors duration-200">
+                  +91 2345678901
                 </a>
               </div>
               <div className="flex items-center space-x-3">
@@ -140,7 +142,7 @@ const Footer: React.FC = () => {
         <div className="border-t border-gray-800 mt-12 pt-8">
           <div className="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
             <div className="text-gray-400 text-sm">
-              © 2024 At Parkkin. All rights reserved.
+              © 2025 At Parkkin. All rights reserved.
             </div>
             <div className="flex space-x-6 text-sm">
               <a href="#" className="text-gray-400 hover:text-white transition-colors duration-200">
