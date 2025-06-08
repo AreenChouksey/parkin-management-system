@@ -1,6 +1,6 @@
 
 import React, { useState } from 'react';
-import { Menu, X, Car, ChevronDown } from 'lucide-react';
+import { Menu, X, ChevronDown } from 'lucide-react';
 import { User } from '../types/user';
 import UserDropdown from './UserDropdown';
 
@@ -35,7 +35,11 @@ const Navigation: React.FC<NavigationProps> = ({
         <div className="flex justify-between items-center h-16">
           {/* Logo */}
           <div className="flex items-center space-x-3">
-            <Car className="h-8 w-8 text-blue-400" />
+            <img 
+              src="https://www.ewaysservices.com/images/eways.jpg" 
+              alt="Eways Logo" 
+              className="h-8 w-8 object-contain"
+            />
             <span className="text-xl font-bold">At Parkkin</span>
           </div>
 
