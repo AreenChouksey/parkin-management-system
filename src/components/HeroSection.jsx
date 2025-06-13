@@ -22,7 +22,7 @@ const HeroSection = ({ onShowLogin, onShowSignup }) => {
             <div className="hero-buttons">
               <button
                 onClick={onShowSignup}
-                className="btn-hero-primary"
+                className="btn-hero-primary btn-glow"
               >
                 Get Started Free
               </button>
