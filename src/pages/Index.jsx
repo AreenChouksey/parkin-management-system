@@ -2,13 +2,13 @@
 import React, { useState, useEffect } from 'react';
 import Navigation from '../components/Navigation';
 import HeroSection from '../components/HeroSection';
-import StatsSection from '../components/StatsSection';
-import SolutionSection from '../components/SolutionSection';
-import CallToAction from '../components/CallToAction';
+import FeaturesSection from '../components/FeaturesSection';
+import AboutSection from '../components/AboutSection';
 import Footer from '../components/Footer';
 import Dashboard from '../components/Dashboard';
 import LoginModal from '../components/LoginModal';
 import SignupModal from '../components/SignupModal';
+import '../styles.css';
 
 const Index = () => {
   const [currentUser, setCurrentUser] = useState(null);
@@ -73,9 +73,8 @@ const Index = () => {
         onShowLogin={() => setShowLoginModal(true)}
         onShowSignup={() => setShowSignupModal(true)}
       />
-      <StatsSection />
-      <SolutionSection />
-      <CallToAction onShowSignup={() => setShowSignupModal(true)} />
+      <FeaturesSection />
+      <AboutSection />
       <Footer />
       
       {showLoginModal && (

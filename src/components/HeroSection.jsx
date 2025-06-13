@@ -1,5 +1,6 @@
 
 import React from 'react';
+import '../styles.css';
 
 const HeroSection = ({ onShowLogin, onShowSignup }) => {
   const showDemo = () => {
@@ -7,71 +8,47 @@ const HeroSection = ({ onShowLogin, onShowSignup }) => {
   };
 
   return (
-    <section id="home" className="hero-modern">
-      <div className="hero-container-modern">
-        <div className="hero-content-modern">
-          <div className="hero-text-modern">
-            <div className="hero-badge">
-              UP NEXT SOFTWARE BETA 2025 🚀
-            </div>
-            <h1 className="hero-title-modern">
-              THE SOLUTION TO<br />
-              YOUR PARKING<br />
-              PROBLEMS
+    <section id="home" className="hero">
+      <div className="hero-container">
+        <div className="hero-content">
+          <div className="hero-text">
+            <h1 className="hero-title">
+              Smart Parking Management System
             </h1>
-            <p className="hero-subtitle-modern">
-              Revolutionary new parking technology by DIGIPARK can
-              make it easier for you to find the nearest space in a
-              smart parking platform.
+            <p className="hero-subtitle">
+              Streamline your parking operations with our intuitive management system. 
+              Monitor spaces, manage reservations, and optimize revenue all in one place.
             </p>
-            <div className="hero-form">
-              <input 
-                type="email" 
-                placeholder="Enter your email address"
-                className="email-input"
-              />
+            <div className="hero-buttons">
               <button
                 onClick={onShowSignup}
-                className="btn-get-access"
+                className="btn-hero-primary"
               >
-                Get Access
+                Get Started Free
               </button>
-            </div>
-            <div className="hero-features">
-              <div className="feature-item">✓ Recognized</div>
-              <div className="feature-item">✓ 24/7 Support systems</div>
-              <div className="feature-item">✓ Integrated 12 APIs</div>
+              <button
+                onClick={showDemo}
+                className="btn-hero-secondary"
+              >
+                Watch Demo
+              </button>
             </div>
           </div>
 
-          <div className="hero-visual-modern">
-            <div className="parking-phone">
-              <div className="phone-screen">
-                <div className="parking-app">
-                  <div className="app-header">
-                    <div className="signal-bars"></div>
-                    <div className="time">9:41</div>
-                    <div className="battery"></div>
-                  </div>
-                  <div className="parking-spots">
-                    <div className="spot-item">
-                      <div className="spot-icon available"></div>
-                      <span>$2.1m</span>
-                    </div>
-                    <div className="spot-item">
-                      <div className="spot-icon occupied"></div>
-                      <span>$1.2m</span>
-                    </div>
-                    <div className="spot-item">
-                      <div className="spot-icon reserved"></div>
-                      <span>$2.0m</span>
-                    </div>
-                    <div className="spot-item">
-                      <div className="spot-icon available"></div>
-                      <span>$5.0m</span>
-                    </div>
-                  </div>
+          <div className="hero-visual">
+            <div className="parking-demo">
+              <div className="parking-grid">
+                <div className="parking-column">
+                  <div className="parking-space space-available"></div>
+                  <div className="parking-space space-occupied" style={{ animationDelay: '0.5s' }}></div>
                 </div>
+                <div className="parking-column">
+                  <div className="parking-space space-available" style={{ animationDelay: '1s' }}></div>
+                  <div className="parking-space space-reserved" style={{ animationDelay: '1.5s' }}></div>
+                </div>
+              </div>
+              <div className="demo-label">
+                Real-time Space Monitoring
               </div>
             </div>
           </div>

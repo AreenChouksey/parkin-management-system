@@ -1,7 +1,8 @@
 
 import React, { useState } from 'react';
-import { Menu, X } from 'lucide-react';
+import { Menu, X, ChevronDown } from 'lucide-react';
 import UserDropdown from './UserDropdown';
+import '../styles.css';
 
 const Navigation = ({
   user,
@@ -21,54 +22,64 @@ const Navigation = ({
   };
 
   return (
-    <nav className="nav-modern">
-      <div className="nav-container-modern">
-        <div className="nav-content-modern">
-          <div className="nav-logo-modern">
-            <span>DIGIPARK</span>
+    <nav className="nav">
+      <div className="nav-container">
+        <div className="nav-content">
+          <div className="nav-logo">
+            <img 
+              src="https://www.ewaysservices.com/images/eways.jpg" 
+              alt="Eways Logo"
+            />
+            <span>At Parkkin</span>
           </div>
 
-          <div className="nav-links-modern">
+          <div className="nav-links">
             {!isLoggedIn ? (
               <>
                 <button 
                   onClick={() => scrollToSection('home')}
-                  className="nav-link-modern"
+                  className="nav-link"
                 >
-                  How it Works
+                  Home
                 </button>
                 <button 
                   onClick={() => scrollToSection('features')}
-                  className="nav-link-modern"
+                  className="nav-link"
                 >
                   Features
                 </button>
                 <button 
                   onClick={() => scrollToSection('about')}
-                  className="nav-link-modern"
+                  className="nav-link"
                 >
-                  About Us
+                  About
                 </button>
                 <button 
                   onClick={() => scrollToSection('contact')}
-                  className="nav-link-modern"
+                  className="nav-link"
                 >
-                  Newsroom
+                  Contact
                 </button>
-                <div className="nav-auth-modern">
+                <div className="nav-auth">
+                  <button
+                    onClick={onShowLogin}
+                    className="btn-primary"
+                  >
+                    Login
+                  </button>
                   <button
                     onClick={onShowSignup}
-                    className="btn-get-started"
+                    className="btn-secondary"
                   >
-                    Start Free Trial
+                    Sign Up
                   </button>
                 </div>
               </>
             ) : (
               <>
-                <button className="nav-link-modern">Dashboard</button>
-                <button className="nav-link-modern">Reservations</button>
-                <button className="nav-link-modern">Reports</button>
+                <button className="nav-link">Dashboard</button>
+                <button className="nav-link">Reservations</button>
+                <button className="nav-link">Reports</button>
                 <UserDropdown user={user} onLogout={onLogout} />
               </>
             )}
@@ -76,54 +87,60 @@ const Navigation = ({
 
           <button
             onClick={() => setIsMenuOpen(!isMenuOpen)}
-            className="mobile-menu-btn-modern"
+            className="mobile-menu-btn"
           >
             {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
           </button>
         </div>
 
         {isMenuOpen && (
-          <div className="mobile-menu-modern">
+          <div className="mobile-menu">
             {!isLoggedIn ? (
               <>
                 <button 
                   onClick={() => scrollToSection('home')}
-                  className="mobile-nav-link-modern"
+                  className="mobile-nav-link"
                 >
-                  How it Works
+                  Home
                 </button>
                 <button 
                   onClick={() => scrollToSection('features')}
-                  className="mobile-nav-link-modern"
+                  className="mobile-nav-link"
                 >
                   Features
                 </button>
                 <button 
                   onClick={() => scrollToSection('about')}
-                  className="mobile-nav-link-modern"
+                  className="mobile-nav-link"
                 >
-                  About Us
+                  About
                 </button>
                 <button 
                   onClick={() => scrollToSection('contact')}
-                  className="mobile-nav-link-modern"
+                  className="mobile-nav-link"
                 >
-                  Newsroom
+                  Contact
                 </button>
-                <div className="mobile-auth-modern">
+                <div className="mobile-auth">
+                  <button
+                    onClick={onShowLogin}
+                    className="btn-primary"
+                  >
+                    Login
+                  </button>
                   <button
                     onClick={onShowSignup}
-                    className="btn-get-started"
+                    className="btn-secondary"
                   >
-                    Start Free Trial
+                    Sign Up
                   </button>
                 </div>
               </>
             ) : (
               <>
-                <button className="mobile-nav-link-modern">Dashboard</button>
-                <button className="mobile-nav-link-modern">Reservations</button>
-                <button className="mobile-nav-link-modern">Reports</button>
+                <button className="mobile-nav-link">Dashboard</button>
+                <button className="mobile-nav-link">Reservations</button>
+                <button className="mobile-nav-link">Reports</button>
                 <UserDropdown user={user} onLogout={onLogout} isMobile />
               </>
             )}
