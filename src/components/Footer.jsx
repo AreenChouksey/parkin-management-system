@@ -1,106 +1,47 @@
 
 import React from 'react';
-import { Mail, MapPin, Phone, Facebook, Twitter, Linkedin, Instagram } from 'lucide-react';
-import '../styles.css';
 
 const Footer = () => {
-  const scrollToSection = (sectionId) => {
-    const element = document.getElementById(sectionId);
-    if (element) {
-      element.scrollIntoView({ behavior: 'smooth' });
-    }
-  };
-
   return (
-    <footer id="contact" className="footer">
-      <div className="footer-container">
-        <div className="footer-grid">
-          <div className="footer-section">
-            <div className="footer-logo">
-              <img 
-                src="https://www.ewaysservices.com/images/eways.jpg" 
-                alt="Eways Logo"
-              />
-              <span>At Parkkin</span>
+    <footer className="footer-modern">
+      <div className="footer-container-modern">
+        <div className="footer-grid-modern">
+          <div className="footer-section-modern">
+            <div className="footer-logo-modern">
+              <span>DIGIPARK</span>
             </div>
-            <p className="footer-description">
-              Smart parking management solutions that help businesses optimize their parking operations 
-              and improve customer experience.
+            <p className="footer-description-modern">
+              Revolutionary parking management system for the digital age.
             </p>
-            <div className="social-links">
-              <a href="#" className="social-link">
-                <Facebook size={20} />
-              </a>
-              <a href="#" className="social-link">
-                <Twitter size={20} />
-              </a>
-              <a href="#" className="social-link">
-                <Linkedin size={20} />
-              </a>
-              <a href="#" className="social-link">
-                <Instagram size={20} />
-              </a>
+            <div className="social-links-modern">
+              <a href="#" className="social-link-modern">📘</a>
+              <a href="#" className="social-link-modern">🐦</a>
+              <a href="#" className="social-link-modern">📷</a>
+              <a href="#" className="social-link-modern">💼</a>
             </div>
           </div>
 
-          <div className="footer-section">
-            <h3 className="footer-title">Quick Links</h3>
-            <div className="footer-links">
-              <button 
-                onClick={() => scrollToSection('home')}
-                className="footer-link"
-              >
-                Home
-              </button>
-              <button 
-                onClick={() => scrollToSection('features')}
-                className="footer-link"
-              >
-                Features
-              </button>
-              <button 
-                onClick={() => scrollToSection('about')}
-                className="footer-link"
-              >
-                About Us
-              </button>
-              <a href="#" className="footer-link">Pricing</a>
-              <a href="#" className="footer-link">Support</a>
+          <div className="footer-section-modern">
+            <h4 className="footer-title-modern">ARCHIVES</h4>
+            <div className="footer-links-modern">
+              <a href="#" className="footer-link-modern">API & Integrations</a>
+              <a href="#" className="footer-link-modern">Help Center</a>
+              <a href="#" className="footer-link-modern">Community</a>
+              <a href="#" className="footer-link-modern">Contact</a>
             </div>
           </div>
 
-          <div className="footer-section">
-            <h3 className="footer-title">Services</h3>
-            <div className="footer-links">
-              <a href="#" className="footer-link">Space Monitoring</a>
-              <a href="#" className="footer-link">Reservation Management</a>
-              <a href="#" className="footer-link">Payment Processing</a>
-              <a href="#" className="footer-link">Analytics & Reports</a>
-              <a href="#" className="footer-link">Mobile Solutions</a>
+          <div className="footer-section-modern">
+            <h4 className="footer-title-modern">CONTACTINFO</h4>
+            <div className="footer-links-modern">
+              <span className="footer-link-modern">support@digipark.com</span>
+              <span className="footer-link-modern">+1 (555) 123-4567</span>
+              <span className="footer-link-modern">San Francisco, CA</span>
             </div>
           </div>
-
-          <div className="footer-section">
-            <h3 className="footer-title">Contact Us</h3>
-            <div className="footer-links">
-              <div className="contact-item">
-                <MapPin className="contact-icon" />
-                <div>New Delhi, India</div>
-              </div>
-              <div className="contact-item">
-                <Phone className="contact-icon" />
-                <a href="tel:+912345678901" className="contact-link">
-                  +91 2345678901
-                </a>
-              </div>
-              <div className="contact-item">
-                <Mail className="contact-icon" />
-                <a href="mailto:info@atparkkin.com" className="contact-link">
-                  info@atparkkin.com
-                </a>
-              </div>
-            </div>
-          </div>
+        </div>
+        <div className="footer-bottom">
+          <p>&copy; 2025 DigiPark. All rights reserved.</p>
         </div>
       </div>
     </footer>
