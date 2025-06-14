@@ -1,21 +1,15 @@
+
 import React, { useState, useEffect } from 'react';
 import { Car, Check, X, DollarSign } from 'lucide-react';
+import { User, ParkingSpace, VehicleInfo } from '../types/user';
 import ParkingLot from './ParkingLot';
-import AdminDashboard from './AdminDashboard';
-import { User } from '../types/user';
 
 interface DashboardProps {
   user: User;
 }
 
 const Dashboard: React.FC<DashboardProps> = ({ user }) => {
-  // If user is admin or super_admin, show the AdminDashboard
-  if (user.role === 'admin' || user.role === 'super_admin') {
-    return <AdminDashboard user={user} />;
-  }
-
-  // Keep existing dashboard code for regular users
-  const [parkingSpaces, setParkingSpaces] = useState<any[]>([]);
+  const [parkingSpaces, setParkingSpaces] = useState<ParkingSpace[]>([]);
   const [stats, setStats] = useState({
     total: 0,
     available: 0,
@@ -33,12 +27,12 @@ const Dashboard: React.FC<DashboardProps> = ({ user }) => {
   }, [parkingSpaces]);
 
   const generateParkingSpaces = () => {
-    const spaces = [];
+    const spaces: ParkingSpace[] = [];
     const totalSpaces = 50;
 
     for (let i = 1; i <= totalSpaces; i++) {
       const random = Math.random();
-      let status;
+      let status: 'available' | 'occupied' | 'reserved';
 
       if (random < 0.3) {
         status = 'available';
@@ -59,7 +53,7 @@ const Dashboard: React.FC<DashboardProps> = ({ user }) => {
     setParkingSpaces(spaces);
   };
 
-  const generateVehicleInfo = () => {
+  const generateVehicleInfo = (): VehicleInfo => {
     const makes = ['Toyota', 'Honda', 'Ford', 'BMW', 'Mercedes', 'Audi', 'Volkswagen'];
     const colors = ['Black', 'White', 'Silver', 'Blue', 'Red', 'Gray'];
 
@@ -70,7 +64,7 @@ const Dashboard: React.FC<DashboardProps> = ({ user }) => {
     };
   };
 
-  const generateLicensePlate = () => {
+  const generateLicensePlate = (): string => {
     const letters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
     const numbers = '0123456789';
 
@@ -116,64 +110,63 @@ const Dashboard: React.FC<DashboardProps> = ({ user }) => {
       icon: Car,
       title: 'Total Spaces',
       value: stats.total,
-      color: '#2563eb',
-      bgColor: '#dbeafe'
+      color: 'text-blue-600',
+      bgColor: 'bg-blue-100'
     },
     {
       icon: Check,
       title: 'Available',
       value: stats.available,
-      color: '#059669',
-      bgColor: '#d1fae5'
+      color: 'text-green-600',
+      bgColor: 'bg-green-100'
     },
     {
       icon: X,
       title: 'Occupied',
       value: stats.occupied,
-      color: '#dc2626',
-      bgColor: '#fee2e2'
+      color: 'text-red-600',
+      bgColor: 'bg-red-100'
     },
     {
       icon: DollarSign,
       title: "Today's Revenue",
       value: `$${stats.revenue}`,
-      color: '#d97706',
-      bgColor: '#fef3c7'
+      color: 'text-yellow-600',
+      bgColor: 'bg-yellow-100'
     }
   ];
 
   return (
-    <div className="min-h-screen bg-gray-50 pt-16">
+    <div className="pt-16 min-h-screen bg-gray-50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+        {/* Header */}
         <div className="mb-8">
           <h1 className="text-3xl font-bold text-gray-900">
-            User Dashboard
+            {user.role === 'super_admin' ? 'Super Admin Dashboard' : 
+             user.role === 'admin' ? 'Admin Dashboard' : 
+             'User Dashboard'}
           </h1>
           <p className="text-gray-600 mt-2">Welcome back, {user.name}!</p>
         </div>
 
+        {/* Stats Cards */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
           {statCards.map((stat, index) => (
             <div key={index} className="bg-white rounded-xl shadow-sm border border-gray-200 p-6">
-              <div className="flex items-center">
-                <div 
-                  className="p-3 rounded-lg"
-                  style={{ backgroundColor: stat.bgColor }}
-                >
-                  <stat.icon 
-                    className="h-6 w-6"
-                    style={{ color: stat.color }}
-                  />
+              <div className="flex items-center space-x-4">
+                <div className={`w-12 h-12 ${stat.bgColor} rounded-lg flex items-center justify-center`}>
+                  <stat.icon className={`h-6 w-6 ${stat.color}`} />
                 </div>
-                <div className="ml-4">
+                <div>
                   <h3 className="text-2xl font-bold text-gray-900">{stat.value}</h3>
-                  <p className="text-sm text-gray-600">{stat.title}</p>
+                  <p className="text-gray-600 text-sm">{stat.title}</p>
                 </div>
               </div>
             </div>
           ))}
         </div>
 
+        {/* Parking Lot */}
         <div className="bg-white rounded-xl shadow-sm border border-gray-200 p-6">
           <ParkingLot 
             spaces={parkingSpaces} 
